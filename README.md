@@ -27,9 +27,7 @@ Watch Monsnode videos in a multi-panel layout.
 2. Open the extensions manager in Chrome (`chrome://extensions`) or Edge (`edge://extensions`) and enable **Developer mode**.
 3. Choose **Load unpacked** and select the `monsnodeMultiPlayer` folder containing `manifest.json`.
 
-## 日本語
-
-### Monsnode Multi Player
+## Monsnode Multi Player
 
 Monsnodeの動画を複数画面で視聴できます。
 
@@ -48,7 +46,7 @@ Monsnodeの動画を複数画面で視聴できます。
 | `M` | ミュート切り替え |
 | `↑` / `↓` | 音量を上げる / 下げる |
 
-### ダウンロードとインストール
+## ダウンロードとインストール
 
 1. このリポジトリを **Code → Download ZIP** からダウンロードし、展開します。
 2. Chrome（`chrome://extensions`）またはEdge（`edge://extensions`）の拡張機能管理ページを開き、**デベロッパーモード**をオンにします。
