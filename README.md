@@ -31,7 +31,7 @@ Watch Monsnode videos in a multi-panel layout.
 
 Monsnodeの動画を複数画面で視聴できます。
 
-1. [Monsnodeの検索画面](https://monsnode.com/)で動画を1〜16本チェックして選択します。
+1. [Monsnode](https://monsnode.com/)で動画を1〜16本チェックして選択します。
 2. 動画を入れ替えるときは、検索画面で現在の動画のチェックを外し、別の動画にチェックを入れます。
 3. キーボードショートカットで見たいシーンへ移動し、フォーカス中の画面を操作できます。
 
