@@ -2,6 +2,8 @@
 
 Watch [Monsnode](https://monsnode.com/) videos in a multi-panel layout.
 
+[Browser version is here](https://github.com/okcysk/monsnodeMultiPlayer)
+
 ![Monsnode Multi Player: select videos from the list and watch them in the multi-panel player](./overview-multi-player.png)
 
 ## Features
@@ -25,6 +27,8 @@ Watch [Monsnode](https://monsnode.com/) videos in a multi-panel layout.
 ## 特徴
 
 Monsnodeの動画を複数画面で視聴できます。
+
+[ブラウザ版はこちら](https://github.com/okcysk/monsnodeMultiPlayer)
 
 1. [Monsnode](https://monsnode.com/)で動画を1〜16本チェックして選択します。
 2. 動画を入れ替えるときは、検索画面で現在の動画のチェックを外し、別の動画にチェックを入れます。
