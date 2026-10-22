@@ -6,11 +6,9 @@ Watch Monsnode videos in a multi-panel layout.
 
 ## Features
 
-1. Select 1–16 videos by checking them on the [Monsnode search page](https://monsnode.com/).
+1. Select 1–16 videos by checking them on the [Monsnode page](https://monsnode.com/).
 2. To replace a video, uncheck it and select another video on the search page.
 3. Use keyboard shortcuts to jump to scenes and control playback in the focused panel.
-
-The player offers 1 × 1, 2 × 2, 3 × 3, and 4 × 4 layouts. Unused panels remain black. Shortcuts can be customized on the extension's options page.
 
 | Key | Default action |
 | --- | --- |
@@ -27,9 +25,7 @@ The player offers 1 × 1, 2 × 2, 3 × 3, and 4 × 4 layouts. Unused panels rema
 
 1. Download this repository using **Code → Download ZIP**, then extract it.
 2. Open the extensions manager in Chrome (`chrome://extensions`) or Edge (`edge://extensions`) and enable **Developer mode**.
-3. Choose **Load unpacked** and select the `monsnodeQuadPlayer` folder containing `manifest.json`.
-
-[Open the GitHub repository](https://github.com/okcysk/monsnodeMultiPlayer)
+3. Choose **Load unpacked** and select the `monsnodeMultiPlayer` folder containing `manifest.json`.
 
 ## 日本語
 
@@ -40,8 +36,6 @@ Monsnodeの動画を複数画面で視聴できます。
 1. [Monsnodeの検索画面](https://monsnode.com/)で動画を1〜16本チェックして選択します。
 2. 動画を入れ替えるときは、検索画面で現在の動画のチェックを外し、別の動画にチェックを入れます。
 3. キーボードショートカットで見たいシーンへ移動し、フォーカス中の画面を操作できます。
-
-再生画面では1×1、2×2、3×3、4×4のレイアウトを選べます。動画が入らない枠は黒く表示されます。ショートカットは拡張機能のオプションページで変更できます。
 
 | キー | 初期動作 |
 | --- | --- |
@@ -58,7 +52,7 @@ Monsnodeの動画を複数画面で視聴できます。
 
 1. このリポジトリを **Code → Download ZIP** からダウンロードし、展開します。
 2. Chrome（`chrome://extensions`）またはEdge（`edge://extensions`）の拡張機能管理ページを開き、**デベロッパーモード**をオンにします。
-3. **パッケージ化されていない拡張機能を読み込む**を押し、`manifest.json` が入った `monsnodeQuadPlayer` フォルダーを選びます。
+3. **パッケージ化されていない拡張機能を読み込む**を押し、`manifest.json` が入った `monsnodeMultiPlayer` フォルダーを選びます。
 
 ## Contact / 連絡先
 
