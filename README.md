@@ -1,6 +1,6 @@
 # Monsnode Multi Player Add-on
 
-Watch Monsnode videos in a multi-panel layout.
+Watch [Monsnode](https://monsnode.com/) videos in a multi-panel layout.
 
 ![Monsnode Multi Player: select videos from the list and watch them in the multi-panel player](./overview-multi-player.png)
 
@@ -10,16 +10,11 @@ Watch Monsnode videos in a multi-panel layout.
 2. To replace a video, uncheck it and select another video on the search page.
 3. Use keyboard shortcuts to jump to scenes and control playback in the focused panel.
 
-| Key | Default action |
-| --- | --- |
-| `B` / `N` | Previous / next video |
-| `Z` / `X` | Rewind / forward 5 seconds |
-| `C` / `V` | Rewind / forward 30 seconds |
-| `F` | Reset speed to 1× |
-| `G` / `H` | Toggle 2.5× / 10× speed |
-| `Space` | Play / pause |
-| `M` | Mute / unmute |
-| `↑` / `↓` | Volume up / down |
+| Key | Default action | Key | Default action |
+| --- | --- | --- | --- |
+| `B` / `N` | Previous / next video | `F` | Reset speed to 1× |
+| `Z` / `X` | Rewind / forward 5 seconds | `G` / `H` | Toggle 2.5× / 10× speed |
+| `C` / `V` | Rewind / forward 30 seconds | `Space` | Play / pause |
 
 ## Download and install
 
@@ -27,7 +22,7 @@ Watch Monsnode videos in a multi-panel layout.
 2. Open the extensions manager in Chrome (`chrome://extensions`) or Edge (`edge://extensions`) and enable **Developer mode**.
 3. Choose **Load unpacked** and select the `monsnodeMultiPlayer` folder containing `manifest.json`.
 
-## Monsnode Multi Player
+## 特徴
 
 Monsnodeの動画を複数画面で視聴できます。
 
