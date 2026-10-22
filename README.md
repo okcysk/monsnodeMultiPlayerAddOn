@@ -1,4 +1,4 @@
-# Monsnode Multi Player
+# Monsnode Multi Player Add-on
 
 Watch Monsnode videos in a multi-panel layout.
 
