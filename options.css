@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f7f9; color: #172033; font: 14px/1.5 system-ui, sans-serif; }
+main { max-width: 850px; margin: 32px auto; padding: 0 20px 40px; }
+h1 { font-size: 24px; margin-bottom: 8px; }
+h2 { font-size: 17px; margin-top: 28px; }
+p { color: #4b5563; }
+.toolbar, .footer { display: flex; align-items: center; gap: 10px; margin: 18px 0; }
+button { border: 0; border-radius: 7px; padding: 10px 14px; background: #1d4ed8; color: white; cursor: pointer; font: inherit; }
+button.secondary { background: #e5e7eb; color: #111827; }
+.table-wrap { background: white; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e5e7eb; }
+th { background: #f9fafb; font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+input.key { width: 90px; text-align: center; text-transform: uppercase; }
+input, select { border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px; font: inherit; background: white; }
+select { width: min(100%, 360px); }
+button.remove { background: #fee2e2; color: #991b1b; padding: 7px 10px; }
+#status { color: #166534; }
+kbd { background: #e5e7eb; padding: 2px 6px; border-radius: 4px; }
+.note { font-size: 12px; }
+@media (max-width: 600px) {
+  main { margin-top: 18px; padding: 0 12px 30px; }
+  th, td { padding: 7px; }
+  select { width: 100%; }
+}
