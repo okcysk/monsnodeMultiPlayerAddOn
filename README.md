@@ -1,4 +1,4 @@
-spankbang：　[ブラウザ拡張版](https://okcysk.github.io/spankbangMultiPlayerAddOn/)　webサイト版(検討中)
+spankbang：　[ブラウザ拡張版](https://okcysk.github.io/spankbangMultiPlayerAddOn/)　[webサイト(ブックマークレット)版](https://okcysk.github.io/spankbangMultiPlayerAddOn/)
 
 monsnode：　[ブラウザ拡張版](https://okcysk.github.io/monsnodeMultiPlayerAddOn/)　[webサイト版](https://okcysk.github.io/monsnodeMultiPlayer/)
 
