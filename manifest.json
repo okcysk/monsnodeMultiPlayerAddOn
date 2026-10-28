@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Monsnode Multi Player",
-  "version": "1.5.8",
+  "version": "1.5.12",
   "description": "Select Monsnode search results and play them in a multi-panel view.",
   "icons": {
     "16": "icons/icon16.png",

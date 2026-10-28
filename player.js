@@ -22,9 +22,12 @@ function updateCountOptions() {
 }
 
 function setPlayerCount(count) {
-  playerCount = [1, 4, 9, 16].includes(Number(count)) ? Number(count) : 4;
+  playerCount = [1, 2, 4, 9, 16].includes(Number(count)) ? Number(count) : 4;
   countSelect.value = String(playerCount);
-  grid.style.setProperty('--player-columns', String(Math.sqrt(playerCount)));
+  // Two videos sit side by side in one row; every other layout is a square grid.
+  const columns = playerCount === 2 ? 2 : Math.sqrt(playerCount);
+  grid.style.setProperty('--player-columns', String(columns));
+  grid.style.setProperty('--player-rows', String(playerCount === 2 ? 1 : columns));
   grid.setAttribute('aria-label', `${playerCount} video players`);
   while (slots.length < playerCount) slots.push(createSlot(slots.length));
   slots.forEach((slot, index) => {
@@ -44,7 +47,8 @@ const DEFAULTS = {
   f: { action: 'reset', value: 1 }, g: { action: 'speedToggle', value: 2.5 },
   h: { action: 'speedToggle', value: 10 }, a: { action: 'decrease', value: 0.25 },
   s: { action: 'increase', value: 0.25 }, Space: { action: 'toggle', value: 0 },
-  m: { action: 'mute', value: 0 }, arrowup: { action: 'volumeUp', value: 0.1 },
+  'Shift+Space': { action: 'toggleAll', value: 0 },
+  m: { action: 'mute', value: 0 }, 'Shift+m': { action: 'muteAll', value: 0 }, arrowup: { action: 'volumeUp', value: 0.1 },
   arrowdown: { action: 'volumeDown', value: 0.1 }
 };
 let bindings = { ...DEFAULTS };
@@ -335,6 +339,21 @@ function operate(video, binding) {
   else if (binding.action === 'volumeDown') { video.volume = Math.max(0, video.volume - (amount || 0.1)); if (!video.volume) video.muted = true; }
 }
 
+function operateAll(binding) {
+  const players = visibleSlots();
+  if (binding.action === 'toggleAll') {
+    const pauseAll = players.some(slot => !slot.video.paused && !slot.video.ended);
+    for (const slot of players) {
+      if (pauseAll) slot.video.pause();
+      else slot.video.play().catch(() => {});
+    }
+  } else if (binding.action === 'muteAll') {
+    const muteAll = players.some(slot => !slot.video.muted);
+    for (const slot of players) slot.video.muted = muteAll;
+  }
+  updateToggleAllButton();
+}
+
 countSelect.addEventListener('change', () => {
   playerCount = Number(countSelect.value);
   if (AUTO_MODE) {
@@ -347,7 +366,7 @@ countSelect.addEventListener('change', () => {
 chrome.storage.local.get({ selectedVideos: [], autoPlaylist: [], autoSourceUrl: '' }, result => {
   if (!AUTO_MODE) { availableSelectedCount = result.selectedVideos.filter(item => item?.videoUrl && item?.id).length; updateCountOptions(); }
   const selectedCount = result.selectedVideos.filter(item => item?.videoUrl && item?.id).length;
-  const initialCount = selectedCount <= 1 ? 1 : selectedCount <= 4 ? 4 : selectedCount <= 9 ? 9 : 16;
+  const initialCount = selectedCount <= 1 ? 1 : selectedCount <= 2 ? 2 : selectedCount <= 4 ? 4 : selectedCount <= 9 ? 9 : 16;
   setPlayerCount(AUTO_MODE ? 4 : initialCount);
   if (AUTO_MODE) startAuto(result.autoPlaylist, result.autoSourceUrl);
   else applySelection(result.selectedVideos);
@@ -356,13 +375,23 @@ document.querySelector('#fullscreen').addEventListener('click', () => {
   if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen?.();
 });
 document.addEventListener('keydown', event => {
-  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  if (event.altKey || event.ctrlKey || event.metaKey) return;
   if (event.target instanceof HTMLElement && (event.target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName))) return;
-  if (event.key.toLowerCase() === 'b' || event.key.toLowerCase() === 'n') {
+  const pressedKey = event.key.toLowerCase();
+  if (event.shiftKey) {
+    const shiftedKey = event.code === 'Space' ? 'Shift+Space' : `Shift+${pressedKey}`;
+    const shiftedBinding = bindings[shiftedKey];
+    if (shiftedBinding && ['toggleAll', 'muteAll'].includes(shiftedBinding.action)) {
+      event.preventDefault();
+      operateAll(shiftedBinding);
+    }
+    return;
+  }
+  if (pressedKey === 'b' || pressedKey === 'n') {
     const slot = slots[activeSlot];
     if (!slot?.item) return;
     event.preventDefault();
-    stepSelectedVideo(slot, event.key.toLowerCase() === 'b' ? -1 : 1);
+    stepSelectedVideo(slot, pressedKey === 'b' ? -1 : 1);
     return;
   }
   const binding = event.code === 'Space' ? bindings.Space : bindings[event.key.toLowerCase()];

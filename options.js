@@ -9,7 +9,9 @@ const DEFAULTS = {
   a: { action: 'decrease', value: 0.25 },
   s: { action: 'increase', value: 0.25 },
   Space: { action: 'toggle', value: 0 },
+  'Shift+Space': { action: 'toggleAll', value: 0 },
   m: { action: 'mute', value: 0 },
+  'Shift+m': { action: 'muteAll', value: 0 },
   arrowup: { action: 'volumeUp', value: 0.1 },
   arrowdown: { action: 'volumeDown', value: 0.1 }
 };
@@ -22,7 +24,9 @@ const ACTIONS = [
   ['advance', 'Advance'],
   ['rewind', 'Rewind'],
   ['toggle', 'Play / pause'],
+  ['toggleAll', 'Play / stop all'],
   ['mute', 'Mute / unmute'],
+  ['muteAll', 'Mute / unmute all'],
   ['volumeUp', 'Increase volume'],
   ['volumeDown', 'Decrease volume']
 ];
@@ -42,14 +46,14 @@ function addRow(key = '', binding = { action: 'advance', value: 5 }) {
   action.innerHTML = actionOptions(binding.action);
   const keyInput = document.createElement('input');
   keyInput.className = 'key';
-  keyInput.maxLength = 8;
+  keyInput.maxLength = 12;
   keyInput.value = key;
   keyInput.placeholder = 'Key';
   keyInput.setAttribute('aria-label', 'Shortcut key');
   keyInput.addEventListener('keydown', event => {
-    if (event.code === 'Space') { event.preventDefault(); keyInput.value = 'Space'; }
+    if (event.code === 'Space') { event.preventDefault(); keyInput.value = event.shiftKey ? 'Shift+Space' : 'Space'; }
     else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') { event.preventDefault(); keyInput.value = event.key; }
-    else if (event.key.length === 1 && /^[a-z0-9]$/i.test(event.key)) { event.preventDefault(); keyInput.value = event.key.toLowerCase(); }
+    else if (event.key.length === 1 && /^[a-z0-9]$/i.test(event.key)) { event.preventDefault(); keyInput.value = event.shiftKey ? `Shift+${event.key.toLowerCase()}` : event.key.toLowerCase(); }
   });
   const value = document.createElement('input');
   value.className = 'value';
@@ -70,7 +74,7 @@ function addRow(key = '', binding = { action: 'advance', value: 5 }) {
   const refresh = () => {
     const type = action.value;
     const isSpeed = ['decrease', 'increase', 'reset', 'preferred', 'speedToggle'].includes(type);
-    const noValue = ['toggle', 'mute'].includes(type);
+    const noValue = ['toggle', 'toggleAll', 'mute', 'muteAll'].includes(type);
     const isVolume = ['volumeUp', 'volumeDown'].includes(type);
     value.disabled = noValue;
     value.step = isSpeed || isVolume ? '0.01' : '0.5';
@@ -113,12 +117,13 @@ function collect() {
   for (const row of rows.children) {
     const action = row.querySelector('.action').value;
     const rawKey = row.querySelector('.key').value.trim();
-    const key = rawKey.toLowerCase() === 'space' ? 'Space' : rawKey.toLowerCase();
-    const needsValue = !['toggle', 'mute'].includes(action);
+    const key = rawKey.toLowerCase() === 'shift+space' ? 'Shift+Space' : rawKey.toLowerCase() === 'space' ? 'Space' : rawKey.toLowerCase().startsWith('shift+') ? `Shift+${rawKey.slice(6).toLowerCase()}` : rawKey.toLowerCase();
+    const needsValue = !['toggle', 'toggleAll', 'mute', 'muteAll'].includes(action);
     const value = needsValue ? Number(row.querySelector('.value').value) : 0;
-    if ((!/^[a-z0-9]$/.test(key) && !['Space', 'arrowup', 'arrowdown'].includes(key)) || bindings[key]) {
-      throw new Error('Use a unique letter, number, Space, ArrowUp, or ArrowDown key for each binding.');
+    if ((!/^[a-z0-9]$/.test(key) && !['Space', 'arrowup', 'arrowdown'].includes(key) && !/^Shift\+(?:[a-z0-9]|Space)$/.test(key)) || bindings[key]) {
+      throw new Error('Use a unique letter, number, Space, ArrowUp, ArrowDown, or Shift+key for each binding.');
     }
+    if (['toggleAll', 'muteAll'].includes(action) !== key.startsWith('Shift+')) throw new Error('Play/stop all and mute/unmute all actions must use a Shift+ key.');
     if (needsValue && (!Number.isFinite(value) || value <= 0 || (['reset', 'preferred', 'speedToggle'].includes(action) && value > 16))) {
       throw new Error(['reset', 'preferred', 'speedToggle'].includes(action) ? 'Playback speed must be between 0.1 and 16.' : 'Enter a value greater than zero.');
     }
