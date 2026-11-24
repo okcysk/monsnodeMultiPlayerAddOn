@@ -45,6 +45,8 @@
     .manager-address button:hover{background:#f8f9fa}
     .contact{display:flex;align-items:center;justify-content:center;gap:22px;width:min(1320px,calc(100% - 56px));margin:0 auto 24px;padding:15px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
     .contact a{color:#3c4043;text-decoration:none}.contact a:hover{color:var(--blue);text-decoration:underline}.contact-label{margin-right:5px;color:var(--muted)}
+    .web-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 14px;padding:10px 16px;background:#e8f0fe;border-bottom:1px solid #c6dafc;color:#174ea6;font-size:14px;text-decoration:none;text-align:center}
+    .web-banner b{color:var(--blue);white-space:nowrap}.web-banner:hover b{text-decoration:underline}
     .lang-switch{display:flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:8px;background:#fff}
     .lang-switch button{border:0;border-radius:5px;padding:6px 10px;background:transparent;color:var(--muted);font:600 12px Arial,sans-serif;cursor:pointer}
     .lang-switch button[aria-pressed="true"]{background:#e9f0fb;color:#185abc}
@@ -54,6 +56,7 @@
   <meta name="google-site-verification" content="LyRfDuRUYksJZFUhuVmuxtJTpkZJOUPSd-Jtx4OINSE" />
 </head>
 <body>
+  <a class="web-banner" href="https://okcysk.github.io/monsnodeMultiPlayer/" target="_blank" rel="noopener"><span data-ja="拡張機能を入れずに使えるブラウザ版もあります" data-en="A web version that needs no extension is also available">拡張機能を入れずに使えるブラウザ版もあります</span><b data-ja="ブラウザ版を開く →" data-en="Open the web version →">ブラウザ版を開く →</b></a>
   <header><div class="lang-switch" role="group" aria-label="Language"><button type="button" data-language="ja" aria-pressed="true">日本語</button><button type="button" data-language="en" aria-pressed="false">English</button></div></header>
   <main class="hero">
     <section class="copy" id="copy-section" aria-label="拡張機能の説明">
@@ -64,7 +67,7 @@
         <li><span class="num">2</span><span id="point-two">入れ替えたい動画は検索画面でチェックを入れなおす</span></li>
         <li><span class="num">3</span><span data-ja="キーボードショートカットで見たいシーンへ移動" data-en="Jump to a scene with keyboard shortcuts">キーボードショートカットで見たいシーンへ移動</span></li>
       </ol>
-      <a class="download" href="./Monsnode-Multi-Player-v1.5.11.zip" download><span class="download-icon" aria-hidden="true">↓</span><span id="download-label" data-ja="拡張機能をダウンロード" data-en="Download the extension">拡張機能をダウンロード</span></a>
+      <a class="download" href="./Monsnode-Multi-Player-v1.5.12.zip" download><span class="download-icon" aria-hidden="true">↓</span><span id="download-label" data-ja="拡張機能をダウンロード" data-en="Download the extension">拡張機能をダウンロード</span></a>
     </section>
     <div class="image-wrap"><img class="hero-image" id="hero-image" src="./overview-multi-player.png" alt="検索画面で動画を選択し、マルチ画面プレーヤーで視聴・操作するイメージ" data-ja-alt="検索画面で動画を選択し、マルチ画面プレーヤーで視聴・操作するイメージ" data-en-alt="Select videos from search results and watch them in the multi-panel player" width="1500" height="844" fetchpriority="high"></div>
   </main>
@@ -80,6 +83,7 @@
     <span class="contact-label" data-ja="連絡先" data-en="Contact">連絡先</span>
     <a href="https://x.com/okcysk46770" target="_blank" rel="noopener noreferrer"><span class="contact-label">X</span>@okcysk46770</a>
     <a href="mailto:okcysk@gmail.com"><span class="contact-label" data-ja="メール" data-en="Email">メール</span>okcysk@gmail.com</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7MyyJaD1YJLHzS2oYbVgQaono_sFIBUAHIID68HomW41pHQ/viewform" target="_blank" rel="noopener noreferrer"><span class="contact-label" data-ja="匿名" data-en="Anonymous">匿名</span><span data-ja="フォームで送る" data-en="Send via form">フォームで送る</span></a>
   </footer>
   <script>
     const languageButtons = document.querySelectorAll('[data-language]');
