@@ -20,12 +20,12 @@
     body{background:var(--bg);color:var(--ink);font:15px/1.55 Arial,"Noto Sans JP",sans-serif}
     header{height:72px;display:flex;align-items:center;width:min(1320px,calc(100% - 56px));margin:auto}
     .brand{font-size:17px;font-weight:650;letter-spacing:-.02em}
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;width:min(1320px,calc(100% - 56px));margin:20px auto 48px}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;width:min(1320px,calc(100% - 56px));margin:16px auto 24px}
     .copy{padding:10px 0}
-    h1{margin:0 0 25px;font-size:clamp(27px,3vw,38px);line-height:1.28;font-weight:650;letter-spacing:-.035em}
+    h1{margin:0 0 18px;font-size:clamp(27px,3vw,38px);line-height:1.28;font-weight:650;letter-spacing:-.035em}
     .tagline{margin:-10px 0 23px;color:#3c4043;font-size:17px;font-weight:550;line-height:1.5}
-    .points{margin:0 0 30px;padding:0;list-style:none}
-    .points li{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line);color:#3c4043;font-size:15px}
+    .points{margin:0 0 22px;padding:0;list-style:none}
+    .points li{display:flex;gap:13px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);color:#3c4043;font-size:15px}
     .points li:last-child{border-bottom:1px solid var(--line)}
     .num{flex:none;display:grid;place-items:center;width:25px;height:25px;margin-top:-2px;border-radius:50%;background:#e9f0fb;color:#2365ba;font-size:12px;font-weight:700}
     .download{display:flex;width:min(100%,400px);min-height:62px;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;font-size:17px;font-weight:700;box-shadow:0 8px 20px #1a73e833;transition:background .15s,transform .15s,box-shadow .15s}
@@ -33,8 +33,8 @@
     .download-icon{font-size:23px;line-height:1}
     .image-wrap{width:100%;padding:7px;border:1px solid #d8dadd;border-radius:13px;background:#fff;box-shadow:0 12px 34px #20212418}
     .hero-image{display:block;width:100%;height:auto;border-radius:8px}
-    .install{width:min(1320px,calc(100% - 56px));margin:0 auto 48px;padding-top:25px;border-top:1px solid var(--line)}
-    .install h2{margin:0 0 15px;font-size:20px;letter-spacing:-.02em}
+    .install{width:min(1320px,calc(100% - 56px));margin:0 auto 18px;padding-top:16px;border-top:1px solid var(--line)}
+    .install h2{margin:0 0 10px;font-size:20px;letter-spacing:-.02em}
     .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
     .step{display:flex;gap:12px;align-items:flex-start;padding:15px 16px;border:1px solid var(--line);border-radius:9px;background:#fff;color:#3c4043;font-size:13px;line-height:1.55}
     .step b{flex:none;color:var(--blue);font-size:13px}
@@ -43,21 +43,22 @@
     .manager-address code{padding:4px 7px;border-radius:5px;background:#f1f3f4}
     .manager-address button{padding:5px 9px;border:1px solid #dadce0;border-radius:6px;background:#fff;color:#3c4043;font:600 12px Arial,sans-serif;cursor:pointer}
     .manager-address button:hover{background:#f8f9fa}
-    .contact{display:flex;align-items:center;justify-content:center;gap:22px;width:min(1320px,calc(100% - 56px));margin:0 auto 24px;padding:15px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    .contact{display:flex;align-items:center;justify-content:center;gap:22px;width:min(1320px,calc(100% - 56px));margin:0 auto 10px;padding:10px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
     .contact a{color:#3c4043;text-decoration:none}.contact a:hover{color:var(--blue);text-decoration:underline}.contact-label{margin-right:5px;color:var(--muted)}
-    .web-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 14px;padding:10px 16px;background:#e8f0fe;border-bottom:1px solid #c6dafc;color:#174ea6;font-size:14px;text-decoration:none;text-align:center}
+    /* One top bar holds the web-version banner and the language switch, keeping the whole page within one screen. */
+    header{height:auto;width:100%;margin:0;gap:12px;padding:7px max(28px,calc((100% - 1320px) / 2));background:#e8f0fe;border-bottom:1px solid #c6dafc}
+    .web-banner{flex:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px 14px;color:#174ea6;font-size:14px;text-decoration:none;text-align:center}
     .web-banner b{color:var(--blue);white-space:nowrap}.web-banner:hover b{text-decoration:underline}
-    .lang-switch{display:flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:8px;background:#fff}
-    .lang-switch button{border:0;border-radius:5px;padding:6px 10px;background:transparent;color:var(--muted);font:600 12px Arial,sans-serif;cursor:pointer}
+    .lang-switch{flex:none;display:flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:8px;background:#fff}
+    .lang-switch button{white-space:nowrap;border:0;border-radius:5px;padding:6px 10px;background:transparent;color:var(--muted);font:600 12px Arial,sans-serif;cursor:pointer}
     .lang-switch button[aria-pressed="true"]{background:#e9f0fb;color:#185abc}
-    @media(max-width:760px){header{width:calc(100% - 32px);height:60px}.hero{grid-template-columns:1fr;gap:25px;width:calc(100% - 32px);margin:14px auto 30px}.copy{padding:0}h1{font-size:28px;margin-bottom:17px}.tagline{margin:-7px 0 17px;font-size:15px}.points{margin-bottom:23px}.points li{padding:11px 0;font-size:14px}.download{width:100%;min-height:58px;font-size:16px}.install{width:calc(100% - 32px);margin-bottom:28px;padding-top:19px}.steps{grid-template-columns:1fr;gap:8px}.step{padding:12px 13px}}
-    @media(max-width:420px){header{height:54px}.brand{font-size:15px}.hero{gap:19px;margin-top:8px}.image-wrap{padding:4px;border-radius:9px}.hero-image{border-radius:5px}.points li{gap:10px;font-size:13px}.download{min-height:55px}.contact{width:calc(100% - 32px);gap:13px;flex-wrap:wrap;font-size:12px}}
+    @media(max-width:760px){header{padding:7px 16px}.web-banner{font-size:13px}.hero{grid-template-columns:1fr;gap:25px;width:calc(100% - 32px);margin:14px auto 30px}.copy{padding:0}h1{font-size:28px;margin-bottom:17px}.tagline{margin:-7px 0 17px;font-size:15px}.points{margin-bottom:23px}.points li{padding:11px 0;font-size:14px}.download{width:100%;min-height:58px;font-size:16px}.install{width:calc(100% - 32px);margin-bottom:28px;padding-top:19px}.steps{grid-template-columns:1fr;gap:8px}.step{padding:12px 13px}}
+    @media(max-width:420px){.brand{font-size:15px}.hero{gap:19px;margin-top:8px}.image-wrap{padding:4px;border-radius:9px}.hero-image{border-radius:5px}.points li{gap:10px;font-size:13px}.download{min-height:55px}.contact{width:calc(100% - 32px);gap:13px;flex-wrap:wrap;font-size:12px}}
   </style>
   <meta name="google-site-verification" content="LyRfDuRUYksJZFUhuVmuxtJTpkZJOUPSd-Jtx4OINSE" />
 </head>
 <body>
-  <a class="web-banner" href="https://okcysk.github.io/monsnodeMultiPlayer/" target="_blank" rel="noopener"><span data-ja="拡張機能を入れずに使えるブラウザ版もあります" data-en="A web version that needs no extension is also available">拡張機能を入れずに使えるブラウザ版もあります</span><b data-ja="ブラウザ版を開く →" data-en="Open the web version →">ブラウザ版を開く →</b></a>
-  <header><div class="lang-switch" role="group" aria-label="Language"><button type="button" data-language="ja" aria-pressed="true">日本語</button><button type="button" data-language="en" aria-pressed="false">English</button></div></header>
+  <header><a class="web-banner" href="https://okcysk.github.io/monsnodeMultiPlayer/" target="_blank" rel="noopener"><span data-ja="拡張機能を入れずに使えるブラウザ版もあります" data-en="A web version that needs no extension is also available">拡張機能を入れずに使えるブラウザ版もあります</span><b data-ja="ブラウザ版を開く →" data-en="Open the web version →">ブラウザ版を開く →</b></a><div class="lang-switch" role="group" aria-label="Language"><button type="button" data-language="ja" aria-pressed="true">日本語</button><button type="button" data-language="en" aria-pressed="false">English</button></div></header>
   <main class="hero">
     <section class="copy" id="copy-section" aria-label="拡張機能の説明">
       <h1>Monsnode Multi Player</h1>
